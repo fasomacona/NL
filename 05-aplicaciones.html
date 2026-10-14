@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5. Aplicaciones | Chi-cuadrada</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>2.2 Correlación no lineal</h1>
+      <p>2.2.2 Aplicaciones</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">Inicio</a>
+      <a href="01-introduccion.html">1. Introducción</a>
+      <a href="02-chi-cuadrada.html">2. Chi-cuadrada</a>
+      <a href="03-interpretacion.html">3. Interpretación</a>
+      <a href="04-medidas-asociacion.html">4. Medidas de asociación</a>
+      <a href="05-aplicaciones.html" class="active">5. Aplicaciones</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Marketing</h2>
+    <div class="card">
+      <p><strong>Pregunta:</strong> ¿El género del cliente se asocia con el tipo de producto comprado?</p>
+      <ul>
+        <li>Tabla género × categoría de producto.</li>
+        <li>\(\chi^2\) + V de Cramer; gráficos de barras apiladas o agrupadas.</li>
+        <li><strong>Uso:</strong> segmentación y mensajes diferenciados.</li>
+      </ul>
+    </div>
+
+    <h2>Salud pública</h2>
+    <div class="card">
+      <p><strong>Pregunta:</strong> ¿Hay asociación entre hábito de fumar (sí/no) y diagnóstico de cierta enfermedad (sí/no)?</p>
+      <ul>
+        <li>Tabla 2×2; \(\chi^2\) o Fisher; odds ratio como complemento.</li>
+        <li><strong>Cuidado:</strong> no afirmar causalidad solo con datos observacionales.</li>
+      </ul>
+    </div>
+
+    <h2>Educación</h2>
+    <div class="card">
+      <p><strong>Pregunta:</strong> ¿El turno (matutino/vespertino) se asocia con aprobar/reprobar una asignatura?</p>
+      <ul>
+        <li>Resultado útil para organización académica.</li>
+        <li>Revisar confusoras: carga laboral, edad, carrera.</li>
+      </ul>
+    </div>
+
+    <h2>Recursos humanos</h2>
+    <div class="card">
+      <p><strong>Pregunta:</strong> ¿El departamento se asocia con el nivel de satisfacción laboral (bajo/medio/alto)?</p>
+      <ul>
+        <li>Tabla r×c; V de Cramer para la fuerza.</li>
+        <li>Residuos para ver qué departamentos se desvían más.</li>
+      </ul>
+    </div>
+
+    <h2>Calidad / operaciones</h2>
+    <div class="card">
+      <p><strong>Pregunta:</strong> ¿El turno de producción se asocia con la presencia de defectos (sí/no)?</p>
+      <ul>
+        <li>Si hay asociación, priorizar inspección o capacitación en el turno problemático.</li>
+      </ul>
+    </div>
+
+    <h2>Relaciones numéricas no lineales (recordatorio aplicado)</h2>
+    <div class="card warning">
+      <p>
+        Si dos variables son numéricas y el scatter no es lineal:
+      </p>
+      <ul style="margin-bottom:0;">
+        <li>No concluir “no hay relación” solo porque Pearson es bajo.</li>
+        <li>Probar Spearman/Kendall si la tendencia es monótona.</li>
+        <li>Considerar transformaciones (log) o modelos no lineales.</li>
+      </ul>
+    </div>
+
+    <h2>Plantilla de reporte</h2>
+    <div class="card success">
+      <p style="margin-bottom:0; font-style:italic;">
+        «Se evaluó la asociación entre género y preferencia de producto mediante una prueba de chi-cuadrada
+        de independencia (χ² = 11.67, gl = 1, p = 0.0006, n = 140). Se rechaza la hipótesis de independencia.
+        La fuerza de la asociación fue débil-moderada (φ ≈ 0.29). El análisis es observacional y no implica causalidad.»
+      </p>
+    </div>
+
+    <p style="margin-top:2rem;">
+      <a class="btn btn-outline" href="04-medidas-asociacion.html">← Anterior</a>
+      <a class="btn" href="ejercicios/ejercicios-manuales.html">Ir a Ejercicios →</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>

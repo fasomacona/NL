@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. Introducción | Correlación no lineal</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>2.2 Correlación no lineal</h1>
+      <p>1. Introducción</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">Inicio</a>
+      <a href="01-introduccion.html" class="active">1. Introducción</a>
+      <a href="02-chi-cuadrada.html">2. Chi-cuadrada</a>
+      <a href="03-interpretacion.html">3. Interpretación</a>
+      <a href="04-medidas-asociacion.html">4. Medidas de asociación</a>
+      <a href="05-aplicaciones.html">5. Aplicaciones</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Dos ideas bajo el mismo tema</h2>
+    <p>En el programa, “correlación no lineal” agrupa situaciones en las que <strong>no basta</strong> el enfoque lineal clásico de Pearson:</p>
+
+    <div class="card highlight">
+      <h3 style="margin-top:0;">A) Variables numéricas con relación curva</h3>
+      <ul style="margin-bottom:0;">
+        <li>El scatter muestra forma de U, J, logarítmica, etc.</li>
+        <li>Pearson puede dar \( r \) cercano a 0 aunque haya dependencia fuerte.</li>
+        <li><strong>Qué hacer:</strong> visualizar; si la relación es monótona → Spearman/Kendall; si no es monótona → modelos no lineales, splines, etc.</li>
+      </ul>
+    </div>
+
+    <div class="card highlight">
+      <h3 style="margin-top:0;">B) Variables categóricas (núcleo de 2.2.1)</h3>
+      <ul style="margin-bottom:0;">
+        <li>Género, tipo de producto, nivel educativo, sí/no, turno, región…</li>
+        <li>No tiene sentido “recta de regresión” entre etiquetas.</li>
+        <li><strong>Qué hacer:</strong> tabla de contingencia + prueba \(\chi^2\) de independencia + medidas de fuerza.</li>
+      </ul>
+    </div>
+
+    <h2>Independencia vs asociación</h2>
+    <p>
+      Dos variables categóricas son <strong>independientes</strong> si el conocimiento de una no aporta información
+      sobre la otra. Son <strong>asociadas (dependientes)</strong> si la distribución de una cambia según el nivel de la otra.
+    </p>
+    <p>Ejemplo:</p>
+    <ul>
+      <li><em>Independencia plausible:</em> color de ojos y último dígito del número de teléfono.</li>
+      <li><em>Asociación plausible:</em> hábito de fumar y presencia de enfermedad respiratoria crónica.</li>
+    </ul>
+
+    <h2>Tabla de contingencia</h2>
+    <p>
+      Cruce de frecuencias entre las categorías de dos variables. Ejemplo (ficticio):
+    </p>
+    <table>
+      <thead>
+        <tr><th></th><th>Producto A</th><th>Producto B</th><th>Total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mujer</td><td>40</td><td>20</td><td>60</td></tr>
+        <tr><td>Hombre</td><td>30</td><td>50</td><td>80</td></tr>
+        <tr><td><strong>Total</strong></td><td>70</td><td>70</td><td>140</td></tr>
+      </tbody>
+    </table>
+    <p>
+      La pregunta estadística: ¿la preferencia de producto es independiente del género, o hay asociación?
+    </p>
+
+    <h2>Relación con el tema 2.1</h2>
+    <table>
+      <thead>
+        <tr><th>Situación</th><th>Herramienta principal</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Dos variables numéricas, relación lineal</td><td>Pearson</td></tr>
+        <tr><td>Dos numéricas, monótona / outliers / ordinales</td><td>Spearman o Kendall</td></tr>
+        <tr><td>Dos categóricas</td><td>\(\chi^2\) + V de Cramer / Phi</td></tr>
+        <tr><td>Numérica con forma no monótona</td><td>Visualización + modelos no lineales</td></tr>
+      </tbody>
+    </table>
+
+    <div class="nota">
+      El corazón de este tema (según el temario) es la <strong>prueba de chi-cuadrada para independencia</strong>
+      y sus <strong>aplicaciones</strong>. Las páginas siguientes desarrollan el cálculo y la interpretación.
+    </div>
+
+    <p style="margin-top:2rem;">
+      <a class="btn" href="02-chi-cuadrada.html">Siguiente: Prueba chi-cuadrada →</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>

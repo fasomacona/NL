@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. Medidas de asociación | Chi-cuadrada</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>2.2 Correlación no lineal</h1>
+      <p>4. Medidas de fuerza de asociación</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">Inicio</a>
+      <a href="01-introduccion.html">1. Introducción</a>
+      <a href="02-chi-cuadrada.html">2. Chi-cuadrada</a>
+      <a href="03-interpretacion.html">3. Interpretación</a>
+      <a href="04-medidas-asociacion.html" class="active">4. Medidas de asociación</a>
+      <a href="05-aplicaciones.html">5. Aplicaciones</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Por qué no basta \(\chi^2\)</h2>
+    <p>
+      El estadístico \(\chi^2\) crece con el tamaño de muestra. Una asociación débil puede ser
+      “muy significativa” con n grande. Las medidas siguientes resumen la <strong>fuerza</strong>
+      en una escala más interpretable (típicamente 0 a 1).
+    </p>
+
+    <h2>Phi (φ) — tablas 2×2</h2>
+    <div class="math-block">
+      $$ \phi = \sqrt{\dfrac{\chi^2}{n}} $$
+    </div>
+    <p>
+      En tablas 2×2, \( |\phi| \) se interpreta de forma análoga a una correlación (0 = nula, cerca de 1 = fuerte).
+      El signo puede recuperarse según la disposición de las celdas, pero a menudo se reporta el valor absoluto.
+    </p>
+
+    <h2>V de Cramer — tablas r×c</h2>
+    <div class="math-block">
+      $$ V = \sqrt{\dfrac{\chi^2}{n\cdot\min(r-1,\, c-1)}} $$
+    </div>
+    <p>
+      Generaliza Phi a tablas más grandes. Rango de 0 a 1.
+    </p>
+
+    <h3>Guía orientativa para V (o |φ|)</h3>
+    <table>
+      <thead>
+        <tr><th>Valor aproximado</th><th>Fuerza de asociación</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0.00 – 0.10</td><td>Muy débil / despreciable</td></tr>
+        <tr><td>0.10 – 0.30</td><td>Débil</td></tr>
+        <tr><td>0.30 – 0.50</td><td>Moderada</td></tr>
+        <tr><td>&gt; 0.50</td><td>Fuerte</td></tr>
+      </tbody>
+    </table>
+    <div class="nota">
+      Los umbrales son orientativos y dependen del campo. En ciencias sociales, V = 0.30 ya puede ser relevante.
+    </div>
+
+    <h2>Ejemplo (continuación del 2×2)</h2>
+    <p>Con \(\chi^2 = 11.667\) y \( n = 140 \):</p>
+    <div class="math-block">
+      $$ \phi = \sqrt{\dfrac{11.667}{140}} \approx \sqrt{0.0833} \approx 0.289 $$
+    </div>
+    <p>
+      Asociación <strong>débil-moderada</strong> y estadísticamente significativa: el efecto existe, pero no es enorme.
+    </p>
+
+    <h2>Otras medidas (referencia)</h2>
+    <ul>
+      <li><strong>Coeficiente de contingencia C:</strong> \( C = \sqrt{\chi^2/(\chi^2+n)} \) (máximo &lt; 1).</li>
+      <li><strong>Odds ratio</strong> (tablas 2×2): muy usado en salud y epidemiología.</li>
+      <li><strong>Lambda de Goodman-Kruskal:</strong> reducción proporcional del error al predecir una variable con la otra.</li>
+    </ul>
+
+    <h2>Qué reportar siempre</h2>
+    <ol>
+      <li>Tabla de contingencia (o al menos proporciones clave).</li>
+      <li>\(\chi^2\), grados de libertad, valor p, n.</li>
+      <li>Phi o V de Cramer (fuerza).</li>
+      <li>Interpretación en el lenguaje del problema + limitaciones.</li>
+    </ol>
+
+    <p style="margin-top:2rem;">
+      <a class="btn btn-outline" href="03-interpretacion.html">← Anterior</a>
+      <a class="btn" href="05-aplicaciones.html">Siguiente: Aplicaciones →</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>

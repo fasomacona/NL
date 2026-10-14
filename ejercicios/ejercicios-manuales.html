@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios manuales | Chi-cuadrada</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>2.2 Correlación no lineal</h1>
+      <p>Ejercicios manuales (resolver en cuaderno)</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="../index.html">Inicio</a>
+      <a href="../01-introduccion.html">1. Introducción</a>
+      <a href="../02-chi-cuadrada.html">2. Chi-cuadrada</a>
+      <a href="../03-interpretacion.html">3. Interpretación</a>
+      <a href="../04-medidas-asociacion.html">4. Medidas de asociación</a>
+      <a href="../05-aplicaciones.html">5. Aplicaciones</a>
+      <a href="ejercicios-manuales.html" class="active">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="card warning">
+      <h3 style="margin-top:0;">Instrucciones</h3>
+      <ul style="margin-bottom:0;">
+        <li>Muestra totales, esperados \( E_{ij} \), cada término \( (O-E)^2/E \) y \(\chi^2\).</li>
+        <li>Indica \( gl \) y la decisión a α = 0.05 (puedes usar valor p del notebook para verificar).</li>
+        <li>Calcula Phi o V cuando se pida.</li>
+      </ul>
+      <div class="math-block" style="margin:1rem 0 0;">
+        $$ E_{ij} = \dfrac{(\sum fila)\,(\sum col)}{n} \qquad \chi^2 = \sum \dfrac{(O-E)^2}{E} \qquad \phi = \sqrt{\dfrac{\chi^2}{n}} $$
+      </div>
+    </div>
+
+    <h2>Ejercicio 1 – Tabla 2×2 completa</h2>
+    <table>
+      <thead>
+        <tr><th></th><th>Éxito campaña</th><th>No éxito</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Canal email</td><td>25</td><td>15</td></tr>
+        <tr><td>Canal redes</td><td>20</td><td>40</td></tr>
+      </tbody>
+    </table>
+    <ol>
+      <li>Completar totales.</li>
+      <li>Calcular los 4 esperados y \(\chi^2\).</li>
+      <li>\( gl \) y conclusión (asociación sí/no a α = 0.05; verifica p en el notebook).</li>
+      <li>Calcular \(\phi\) e interpretar la fuerza.</li>
+    </ol>
+
+    <h2>Ejercicio 2 – Interpretación</h2>
+    <p>Un estudio reporta: χ² = 4.2, gl = 2, p = 0.12, n = 90, V = 0.15.</p>
+    <ol>
+      <li>¿Se rechaza H₀ a α = 0.05?</li>
+      <li>¿Qué se puede decir de la fuerza de asociación?</li>
+      <li>Redacta dos oraciones de conclusión correctas.</li>
+    </ol>
+
+    <h2>Ejercicio 3 – ¿Qué método usar?</h2>
+    <p>Indica la herramienta adecuada y por qué:</p>
+    <ol>
+      <li>Altura y peso de adultos.</li>
+      <li>Tipo de escuela (pública/privada) y rendimiento (alto/medio/bajo).</li>
+      <li>Inversión publicitaria y ventas (scatter en forma de curva creciente cóncava).</li>
+      <li>Dos rankings de 7 jueces sobre los mismos candidatos.</li>
+    </ol>
+
+    <h2>Ejercicio 4 – Esperados pequeños</h2>
+    <p>Una tabla 2×2 tiene una celda con E = 2.1. ¿Qué problema hay y qué alternativas mencionan los apuntes?</p>
+
+    <h2>Ejercicio 5 – Mini caso</h2>
+    <p>Turno × defecto (datos):</p>
+    <table>
+      <thead>
+        <tr><th></th><th>Con defecto</th><th>Sin defecto</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Matutino</td><td>10</td><td>90</td></tr>
+        <tr><td>Vespertino</td><td>25</td><td>75</td></tr>
+      </tbody>
+    </table>
+    <ol>
+      <li>Calcular \(\chi^2\) y \(\phi\).</li>
+      <li>Interpretar para el jefe de planta (lenguaje no técnico + una limitación).</li>
+    </ol>
+
+    <div class="card success" style="margin-top:2rem;">
+      <a class="btn" href="../practica/practica_chi_cuadrada.ipynb" download>Descargar notebook</a>
+      <a class="btn btn-outline" href="../index.html">Volver al inicio</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.2 Correlación no lineal | GAD-2401</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>2.2 Correlación no lineal</h1>
+      <p>Análisis y visualización de datos (GAD-2401) · Chi-cuadrada e independencia</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="01-introduccion.html">1. Introducción</a>
+      <a href="02-chi-cuadrada.html">2. Chi-cuadrada</a>
+      <a href="03-interpretacion.html">3. Interpretación</a>
+      <a href="04-medidas-asociacion.html">4. Medidas de asociación</a>
+      <a href="05-aplicaciones.html">5. Aplicaciones</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Bienvenido al tema</h2>
+    <p>
+      Cuando las variables son <strong>categóricas</strong> (nominales u ordinales tratadas como categorías),
+      no aplicamos Pearson, Spearman o Kendall de la misma forma. En su lugar usamos tablas de contingencia
+      y la <strong>prueba de chi-cuadrada (\(\chi^2\)) para independencia</strong>, junto con medidas de fuerza
+      de asociación (V de Cramer, Phi, etc.).
+    </p>
+    <p>
+      El tema también recuerda que, entre variables numéricas, pueden existir relaciones
+      <strong>no lineales</strong> que Pearson no captura bien: ahí siguen siendo útiles la visualización,
+      Spearman/Kendall (si son monótonas) u otros modelos.
+    </p>
+
+    <div class="card highlight">
+      <h3 style="margin-top:0;">Objetivos de aprendizaje</h3>
+      <ol>
+        <li>Distinguir asociación entre variables categóricas vs correlación numérica.</li>
+        <li>Construir tablas de contingencia y calcular frecuencias esperadas.</li>
+        <li>Aplicar e interpretar la prueba \(\chi^2\) de independencia (H₀, estadístico, gl, valor p).</li>
+        <li>Complementar con medidas de fuerza (Phi, V de Cramer).</li>
+        <li>Aplicar estos métodos a casos reales y reportarlos correctamente.</li>
+      </ol>
+    </div>
+
+    <h2>Contenido</h2>
+    <div class="grid">
+      <div class="card">
+        <h4><a href="01-introduccion.html">1. Introducción</a></h4>
+        <p>Relaciones no lineales y el paso a variables categóricas.</p>
+      </div>
+      <div class="card">
+        <h4><a href="02-chi-cuadrada.html">2. Prueba chi-cuadrada</a></h4>
+        <p>Fórmulas, tabla de contingencia y cálculo paso a paso (2.2.1).</p>
+      </div>
+      <div class="card">
+        <h4><a href="03-interpretacion.html">3. Interpretación y supuestos</a></h4>
+        <p>Valor p, condiciones de aplicación y limitaciones.</p>
+      </div>
+      <div class="card">
+        <h4><a href="04-medidas-asociacion.html">4. Medidas de asociación</a></h4>
+        <p>Phi, V de Cramer y lectura de la fuerza.</p>
+      </div>
+      <div class="card">
+        <h4><a href="05-aplicaciones.html">5. Aplicaciones</a></h4>
+        <p>Casos de negocio, salud, educación y marketing (2.2.2).</p>
+      </div>
+      <div class="card">
+        <h4><a href="ejercicios/ejercicios-manuales.html">Ejercicios manuales</a></h4>
+        <p>Cálculos en cuaderno y decisiones de análisis.</p>
+      </div>
+    </div>
+
+    <h2>Práctica en Jupyter</h2>
+    <div class="card success">
+      <p>Tablas de contingencia, \(\chi^2\), residuos, visualizaciones y casos con <code>pandas</code> / <code>scipy</code>.</p>
+      <a class="btn" href="practica/practica_chi_cuadrada.ipynb" download>Descargar practica_chi_cuadrada.ipynb</a>
+      <p style="margin-top:1rem; font-size:0.9rem; color:var(--text-light);">
+        Ábrelo en <a href="https://colab.research.google.com" target="_blank">Google Colab</a>
+      </p>
+    </div>
+
+    <div class="nota">
+      <strong>Prerrequisito:</strong> Tema 2.1 (correlación lineal). Conceptos básicos de probabilidad y tablas de frecuencias.
+    </div>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo · 2026</p>
+  </footer>
+</body>
+</html>

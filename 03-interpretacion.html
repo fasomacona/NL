@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. Interpretación | Chi-cuadrada</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>2.2 Correlación no lineal</h1>
+      <p>3. Interpretación y supuestos</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">Inicio</a>
+      <a href="01-introduccion.html">1. Introducción</a>
+      <a href="02-chi-cuadrada.html">2. Chi-cuadrada</a>
+      <a href="03-interpretacion.html" class="active">3. Interpretación</a>
+      <a href="04-medidas-asociacion.html">4. Medidas de asociación</a>
+      <a href="05-aplicaciones.html">5. Aplicaciones</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Cómo interpretar el valor p</h2>
+    <div class="card highlight">
+      <ul style="margin-bottom:0;">
+        <li>Si <strong>p &lt; 0.05</strong> → rechazamos H₀ → <em>hay evidencia de asociación</em> entre las variables.</li>
+        <li>Si <strong>p ≥ 0.05</strong> → no rechazamos H₀ → <em>no hay evidencia suficiente</em> de asociación (no prueba que sean independientes en la población).</li>
+      </ul>
+    </div>
+    <p>
+      \(\chi^2\) y el p-valor responden: <strong>¿hay asociación estadísticamente detectable?</strong>
+      No miden por sí solos <strong>qué tan fuerte</strong> es. Para la fuerza usamos Phi o V de Cramer.
+    </p>
+
+    <h2>Residuos: ¿dónde está la asociación?</h2>
+    <p>
+      Tras un resultado significativo, conviene mirar qué celdas se alejan más de lo esperado.
+      El residuo estandarizado aproximado:
+    </p>
+    <div class="math-block">
+      $$ R_{ij} = \dfrac{O_{ij} - E_{ij}}{\sqrt{E_{ij}}} $$
+    </div>
+    <p>
+      Residuos grandes en valor absoluto (p. ej. &gt; 2) señalan celdas que más contribuyen a \(\chi^2\).
+    </p>
+
+    <h2>Supuestos y condiciones</h2>
+    <ol>
+      <li><strong>Observaciones independientes</strong> (cada individuo cuenta una sola vez en la tabla).</li>
+      <li><strong>Categorías exhaustivas y excluyentes</strong>.</li>
+      <li><strong>Frecuencias esperadas no demasiado pequeñas:</strong> regla habitual — al menos el 80 % de las celdas con \( E_{ij} \geq 5 \), y ninguna con \( E_{ij} = 0 \).</li>
+      <li>Si esperados son muy bajos en tablas 2×2 → considerar <strong>test exacto de Fisher</strong>.</li>
+    </ol>
+
+    <h2>Limitaciones</h2>
+    <ul>
+      <li>No implica causalidad.</li>
+      <li>Con muestras enormes, asociaciones muy débiles pueden ser significativas.</li>
+      <li>No indica dirección de la misma forma que una correlación numérica; la lectura es por comparación de proporciones / residuos.</li>
+      <li>Orden de categorías ordinales no se aprovecha del todo (hay pruebas ordinales alternativas si importa el orden).</li>
+    </ul>
+
+    <h2>Errores frecuentes</h2>
+    <table>
+      <thead>
+        <tr><th>Error</th><th>Corrección</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>«p significativo = asociación fuerte»</td><td>Calcular también V de Cramer / Phi</td></tr>
+        <tr><td>Aplicar \(\chi^2\) con muchos \( E &lt; 5 \)</td><td>Agrupar categorías o usar Fisher</td></tr>
+        <tr><td>Usar porcentajes de fila como si fueran independientes del diseño</td><td>Dejar claro si se interpretan filas o columnas</td></tr>
+        <tr><td>Afirmar causa</td><td>Hablar solo de asociación</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:2rem;">
+      <a class="btn btn-outline" href="02-chi-cuadrada.html">← Anterior</a>
+      <a class="btn" href="04-medidas-asociacion.html">Siguiente: Medidas de asociación →</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. Prueba chi-cuadrada | Correlación no lineal</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>2.2 Correlación no lineal</h1>
+      <p>2.2.1 Prueba de chi-cuadrada para independencia</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <a href="index.html">Inicio</a>
+      <a href="01-introduccion.html">1. Introducción</a>
+      <a href="02-chi-cuadrada.html" class="active">2. Chi-cuadrada</a>
+      <a href="03-interpretacion.html">3. Interpretación</a>
+      <a href="04-medidas-asociacion.html">4. Medidas de asociación</a>
+      <a href="05-aplicaciones.html">5. Aplicaciones</a>
+      <a href="ejercicios/ejercicios-manuales.html">Ejercicios</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Hipótesis</h2>
+    <ul>
+      <li><strong>H₀:</strong> las dos variables son <strong>independientes</strong> (no hay asociación).</li>
+      <li><strong>H₁:</strong> las variables son <strong>dependientes</strong> (existe asociación).</li>
+    </ul>
+
+    <h2>Frecuencias esperadas</h2>
+    <p>Bajo independencia, la frecuencia esperada en la celda de la fila \( i \) y columna \( j \) es:</p>
+    <div class="math-block">
+      $$ E_{ij} = \dfrac{(\text{total fila } i)\times(\text{total columna } j)}{n} $$
+    </div>
+    <p>donde \( n \) es el total general de observaciones.</p>
+
+    <h2>Estadístico de prueba</h2>
+    <div class="math-block">
+      $$ \chi^2 = \sum_{i,j} \dfrac{(O_{ij} - E_{ij})^2}{E_{ij}} $$
+    </div>
+    <p>
+      \( O_{ij} \) = frecuencia <strong>observada</strong>, \( E_{ij} \) = frecuencia <strong>esperada</strong>.
+      Valores grandes de \(\chi^2\) indican mayor discrepancia respecto a la independencia.
+    </p>
+
+    <h2>Grados de libertad</h2>
+    <div class="math-block">
+      $$ gl = (r - 1)\,(c - 1) $$
+    </div>
+    <p>\( r \) = número de filas de categorías, \( c \) = número de columnas (sin contar totales).</p>
+
+    <h2>Procedimiento manual paso a paso</h2>
+    <ol>
+      <li>Construir la tabla de contingencia con totales de fila, columna y general.</li>
+      <li>Calcular \( E_{ij} \) para cada celda.</li>
+      <li>Para cada celda: \( \dfrac{(O - E)^2}{E} \).</li>
+      <li>Sumar todas las contribuciones → \(\chi^2\).</li>
+      <li>Calcular \( gl = (r-1)(c-1) \).</li>
+      <li>Comparar con valor crítico o (en software) obtener el valor p.</li>
+      <li>Decidir: si p &lt; α (p. ej. 0.05) → rechazar H₀ (hay evidencia de asociación).</li>
+    </ol>
+
+    <h2>Ejemplo numérico (2×2)</h2>
+    <p>Preferencia de producto según género (datos ficticios):</p>
+    <table>
+      <thead>
+        <tr><th></th><th>Producto A</th><th>Producto B</th><th>Total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mujer</td><td>40</td><td>20</td><td>60</td></tr>
+        <tr><td>Hombre</td><td>30</td><td>50</td><td>80</td></tr>
+        <tr><td><strong>Total</strong></td><td>70</td><td>70</td><td>140</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Esperados</h3>
+    <ul>
+      <li>\( E_{11} = 60\times70/140 = 30 \)</li>
+      <li>\( E_{12} = 60\times70/140 = 30 \)</li>
+      <li>\( E_{21} = 80\times70/140 = 40 \)</li>
+      <li>\( E_{22} = 80\times70/140 = 40 \)</li>
+    </ul>
+
+    <h3>Estadístico</h3>
+    <div class="math-block">
+      $$ \chi^2 = \dfrac{(40-30)^2}{30} + \dfrac{(20-30)^2}{30} + \dfrac{(30-40)^2}{40} + \dfrac{(50-40)^2}{40} $$
+      $$ = \dfrac{100}{30} + \dfrac{100}{30} + \dfrac{100}{40} + \dfrac{100}{40} = 3.333 + 3.333 + 2.5 + 2.5 = 11.667 $$
+    </div>
+    <p>\( gl = (2-1)(2-1) = 1 \). El valor p asociado (software) es pequeño (&lt; 0.05).</p>
+    <div class="card success">
+      <strong>Conclusión:</strong> se rechaza H₀. Hay evidencia de asociación entre género y preferencia de producto
+      en esta muestra.
+    </div>
+
+    <div class="nota">
+      <strong>Corrección de Yates</strong> (opcional en tablas 2×2): algunos textos restan 0.5 a \( |O-E| \)
+      antes de elevar al cuadrado. En la práctica moderna con software suele usarse \(\chi^2\) sin Yates
+      o el test exacto de Fisher si las frecuencias esperadas son muy pequeñas.
+    </div>
+
+    <p style="margin-top:2rem;">
+      <a class="btn btn-outline" href="01-introduccion.html">← Anterior</a>
+      <a class="btn" href="03-interpretacion.html">Siguiente: Interpretación →</a>
+    </p>
+  </main>
+
+  <footer>
+    <p>Material generado para la asignatura GAD-2401 · Uso educativo</p>
+  </footer>
+</body>
+</html>
